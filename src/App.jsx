@@ -23,7 +23,6 @@ function App() {
   const search = async(city) => {
     const response = await fetch(`${url}?q=${city}`, options);
     const data = await response.json();
-    console.log(data);
     setCityData(data);
   }
 
