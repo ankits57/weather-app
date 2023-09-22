@@ -1,29 +1,66 @@
 import React from 'react'
 
 const WeatherCard = ({city}) => {
-  return (
-      <div className='data'>
-          <div className='basic-data'>
-              <img src='https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80' alt={city.location.name} />
-              <h1>{city.location.name}, {city.location.region}</h1>
-              <h2>{city.location.country}</h2>
-              <h3>Time Zone : {city.location.tz_id}</h3>
-              <h3>Local Time : {city.location.localtime}</h3>
-              <h3>Latitude : {city.location.lat}</h3>
-              <h3>Longitude : {city.location.lon}</h3>
-          </div>
-          <div className='temp'>
-              <h1>Temperature Data </h1>
-              <h2>{city.current.is_day === 0 ? 'Night' : 'Day'}</h2>
-              <h2>Condition : <span style={{ color: '#352F44' }}>{city.current.condition.text}</span></h2>
-              <h2>Temperature : <span style={{ color: '#352F44' }}>{city.current.temp_c}°C / {city.current.temp_f}°F</span></h2>
-              <h2>Cloud Coverage : <span style={{ color: '#352F44' }}>{city.current.cloud}% </span></h2>
-              <h2>Wind Direction : <span style={{ color: '#352F44' }}>{city.current.wind_dir}, {city.current.wind_kph} kmph </span></h2>
-              <h2>Visiblity : <span style={{ color: '#352F44' }}>{city.current.vis_km} km </span></h2>
-              <h2>Last Updated : <span style={{ color: '#352F44' }}>{city.current.last_updated} </span></h2>
-          </div>
-       </div>
+    return (
+        <>
+        <div className="ml-2 mr-2 mb-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+            <div className="p-6">
+            <h3 className="mb-2 text-2xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                City Information
+            </h3>
+            <p className="text-xl mb-1 text-base text-neutral-600 dark:text-neutral-200">
+               {city.location.name}, {city.location.region}
+            </p>
+            <p className="text-xl mb-1 text-base text-neutral-600 dark:text-neutral-200">
+               <span className='text-black'>Country :</span> {city.location.country}
+            </p>
+            <p className="text-xl mb-1 text-base text-neutral-600 dark:text-neutral-200">
+               <span className='text-black'>Time Zone :</span> {city.location.tz_id}
+            </p>
+            <p className="text-xl mb-1 text-base text-neutral-600 dark:text-neutral-200">
+               <span className='text-black'>Local Time :</span> {city.location.localtime}
+            </p>
+            <p className="text-xl mb-1 text-base text-neutral-600 dark:text-neutral-200">
+               <span className='text-black'>Latitude :</span> {city.location.lat}
+            </p>
+            <p className="text-xl mb-1 text-base text-neutral-600 dark:text-neutral-200">
+               <span className='text-black'>Longitude :</span> {city.location.lon}
+            </p>
+            </div>
+            </div>
+
+            <div className="ml-2 mr-2 mb-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+            <div className="p-6">
+            <h3 className="mb-2 text-2xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                Weather Information
+            </h3>
+            <p className="text-xl mb-1 text-base text-neutral-600 dark:text-neutral-200">
+               {city.current.is_day === 0 ? 'Night' : 'Day'}
+            </p>
+            <p className="text-xl mb-1 text-base text-neutral-600 dark:text-neutral-200">
+               <span className='text-black'>Condition :</span> {city.current.condition.text}
+            </p>
+            <p className="text-xl mb-1 text-base text-neutral-600 dark:text-neutral-200">
+               <span className='text-black'>Temperature :</span> {city.current.temp_c}°C / {city.current.temp_f}°F
+            </p>
+            <p className="text-xl mb-1 text-base text-neutral-600 dark:text-neutral-200">
+               <span className='text-black'>Cloud Coverage: </span> {city.current.cloud}% 
+            </p>
+            <p className="text-xl mb-1 text-base text-neutral-600 dark:text-neutral-200">
+               <span className='text-black'>Wind Direction :</span> {city.current.wind_dir}, {city.current.wind_kph} kmph
+            </p>
+            <p className="text-xl mb-1 text-base text-neutral-600 dark:text-neutral-200">
+               <span className='text-black'>Visiblity :</span> {city.current.vis_km} km 
+            </p>
+            </div>
+        </div>
+        
+        </>
+
   )
 }
 
 export default WeatherCard
+
+
+// As promissed I have made it responsive using Tailwind CSS and Frontend is completely in React and API from Rapid API, however I think it's an overkill for basic react weather app
